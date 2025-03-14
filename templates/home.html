@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Predictions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            color: #0277bd;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        form {
+            display: grid;
+            gap: 1rem;
+        }
+        label {
+            font-weight: bold;
+            color: #01579b;
+        }
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #b0bec5;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        button {
+            background-color: #0288d1;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Weather Predictions</h1>
+        <form action="/predict" method="POST">
+            <div>
+                <label for="Summary">Summary:</label>
+                <input type="text" id="Summary" name="Summary" placeholder="e.g., 17">
+            </div>
+            <div>
+                <label for="Humidity">Humidity (%):</label>
+                <input type="any" id="Humidity" name="Humidity" placeholder="e.g., 0.41" step="any">
+            </div>
+            <div>
+                <label for="WindSpeed">Wind Speed (km/h):</label>
+                <input type="any" id="WindSpeed" name="WindSpeed" placeholder="e.g., 9" step="any">
+            </div>
+            <div>
+                <label for="WindBearing">Wind Bearing (degrees):</label>
+                <input type="any" id="WindBearing" name="WindBearing" placeholder="e.g., 210" step="any">
+            </div>
+            <div>
+                <label for="Visibility">Visibility (km):</label>
+                <input type="any" id="Visibility" name="Visibility" placeholder="e.g., 10" step="any">
+            </div>
+            <div>
+                <label for="Pressure">Pressure (millibars):</label>
+                <input type="any" id="Pressure" name="Pressure" placeholder="e.g., 1008" step="any">
+            </div>
+            <button type="submit">Predict Weather</button>
+        </form>
+    </div>
+</body>
+</html>
