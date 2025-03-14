@@ -1,11 +1,18 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import joblib
+import pickle
+import os
 
 # Load the trained model
-model_file = "model.pkl"
-trained_model = joblib.load(model_file)
+model_file = "model1.pkl"
+
+# Check if the model file exists
+if not os.path.exists(model_file):
+    st.error(f"Model file not found at: {model_file}")
+else:
+    with open(model_file, 'rb') as f:
+        trained_model = pickle.load(f)
 
 # Function to preprocess data and make predictions
 def preprocessDataAndPredict(Summary, Humidity, WindSpeed, WindBearing, Visibility, Pressure):
@@ -35,6 +42,8 @@ def main():
             st.success(f"Prediction: {round(prediction[0], 2)}")
         except ValueError:
             st.error("Error: Please enter valid numerical values for all fields.")
+        except Exception as e:
+            st.error(f"An unexpected error occurred: {str(e)}")
 
 if __name__ == '__main__':
     main()
